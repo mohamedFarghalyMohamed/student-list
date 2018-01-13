@@ -1,8 +1,9 @@
 namespace StudentsList
 {
-    abstract class AppArguemnts
+    static class AppArguemnts
     {
         public static readonly string ListAllStudents = "a";
+        
         public static readonly string AddStudent = "+";
 
         public static readonly string GetRandomStudent = "r";
