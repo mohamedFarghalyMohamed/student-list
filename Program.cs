@@ -1,6 +1,16 @@
 ﻿using System;
 using System.IO;
+<<<<<<< HEAD
 using System.Linq;
+=======
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using StudentsList.UI;
+using StudentsList.ProcessingTools;
+using StudentsList.IO;
+using StudentsList;
+>>>>>>> my-own-refactoring
 
 namespace dev275x.studentlist
 {
@@ -8,6 +18,7 @@ namespace dev275x.studentlist
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             /* Check argument count */
             if (args == null || args.Length != 1)
             {
@@ -116,6 +127,11 @@ namespace dev275x.studentlist
         static void ShowUsage()
         {
             Console.WriteLine($"Usage: dotnet dev275x.rollcall.dll (-a | -r | -c | +WORD | ?WORD)");
+=======
+            App app = new App();
+            app.Setup();
+            app.Start(args);
+>>>>>>> my-own-refactoring
         }
     }
 }
