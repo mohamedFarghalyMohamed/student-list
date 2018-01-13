@@ -13,35 +13,21 @@ namespace StudentsList.IO
 
         public string Read()
         {
-            string content;
             using(var fileStream = new FileStream(filePath, FileMode.Open))
-                content = ReadFileContent(fileStream);
-            return content;
+                using (var streamReader = new StreamReader(fileStream))
+                {
+                    return streamReader.ReadToEnd();
+                }
         }
 
         public void Overwrite(string content)
         {
             using(var fileStream = new FileStream(filePath, FileMode.Open))
-                OverwriteFile(fileStream, content);
-        }
-
-        private string ReadFileContent(FileStream stream)
-        {
-            string fileContent = string.Empty;
-            using (var streamReader = new StreamReader(stream))
-            {
-                fileContent = streamReader.ReadToEnd();
-            }
-            return fileContent;
-        }
-
-        private void OverwriteFile(FileStream stream, string content)
-        {
-            using (var streamWriter = new StreamWriter(stream))
-            {
-                stream.Seek(0, SeekOrigin.Begin);
-                streamWriter.WriteLine(content);
-            }
+                using (var streamWriter = new StreamWriter(fileStream))
+                {
+                    fileStream.Seek(0, SeekOrigin.Begin);
+                    streamWriter.WriteLine(content);
+                }
         }
     }
 }
